@@ -17,12 +17,11 @@ def get_movie(request,movie_id):
     movie = Movie.objects.get(pk=movie_id)
     actor = movie.actors.all()
 
-
-
     context = {
         "actor":actor,
         "movies":movies,
         "movie":movie,
+        
     }
     return render(request,'film_janr.html',context)
 
@@ -37,11 +36,9 @@ def about_actor(request,actor_id):
         "movie":movie,
     }
     return render(request,'about.html',context)
+
 def all_movies(request):
     movie = Movie.objects.all()
-
-
-
 
     context = {
 

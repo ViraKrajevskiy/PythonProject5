@@ -5,7 +5,7 @@ from .views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
-    path('movies/<str:genre>/', movie_by_genre, name='movies_by_genre'),
+    path('movies/<str:genre>/', , name='movies_by_genre'),
 ]
 
 

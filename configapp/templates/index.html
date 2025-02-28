@@ -1,39 +1,121 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#">Navbar</a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Link</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li><hr class="dropdown-divider"></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<!--<div class="container mt-4">-->
+<!--  <div class="row">-->
+
+<!--    &lt;!&ndash; Карточки фильмов &ndash;&gt;-->
+<!--    <div class="col-md-8">-->
+<!--      {% for item in films %}-->
+<!--      <div class="card mb-3">-->
+<!--        <div class="row g-0">-->
+<!--          <div class="col-md-4">-->
+<!--            {% if item.imdb %}-->
+<!--              <img src="{{ item.imdb.url }}" class="img-fluid" alt="Movie Image">-->
+<!--            {% else %}-->
+<!--              <img src="https://via.placeholder.com/150" class="img-fluid" alt="No Image">-->
+<!--            {% endif %}-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">{{ item.name }}</h5>-->
+<!--              <p class="card-text">Year: {{ item.year }}</p>-->
+<!--              <p class="card-text">Genre: {{ item.genre }}</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      {% endfor %}-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Список жанров &ndash;&gt;-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="list-group">-->
+<!--        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">-->
+<!--          Film genres-->
+<!--        </a>-->
+<!--        {% for genre in genres %}-->
+<!--        <a href="{% url 'movies_by_genre' genre=genre %}">{{ genre.genres }}</a>-->
+<!--        {% endfor %}-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Movie List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Movie Catalog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="#">Genres</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -47,17 +129,13 @@
 <div class="container mt-4">
   <div class="row">
 
-    <!-- Карточки фильмов -->
+    <!-- Фильмы -->
     <div class="col-md-8">
       {% for item in films %}
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4">
-            {% if item.imdb %}
-              <img src="{{ item.imdb.url }}" class="img-fluid" alt="Movie Image">
-            {% else %}
-              <img src="https://via.placeholder.com/150" class="img-fluid" alt="No Image">
-            {% endif %}
+            <img src="{{ item.image.url }}" class="img-fluid" alt="{{ item.name }}">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -68,17 +146,19 @@
           </div>
         </div>
       </div>
+      {% empty %}
+      <p>No movies available.</p>
       {% endfor %}
     </div>
 
-    <!-- Список жанров -->
+    <!-- Жанры -->
     <div class="col-md-4">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-          Film genres
-        </a>
+        <a href="#" class="list-group-item list-group-item-action active">Film Genres</a>
         {% for genre in genres %}
-        <a href="{% url 'movies_by_genre' genre=genre %}">{{ genre.genres }}</a>
+        <a href="{% url 'movies_by_genre' genre=genre %}" class="list-group-item list-group-item-action">{{ genre }}</a>
+        {% empty %}
+        <p>No genres available.</p>
         {% endfor %}
       </div>
     </div>
